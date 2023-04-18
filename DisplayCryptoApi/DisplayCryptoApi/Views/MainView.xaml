@@ -4,9 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DisplayCryptoApi"
+        xmlns:vm="clr-namespace:DisplayCryptoApi.ViewModels"
         mc:Ignorable="d"
         Title="MainView" Height="800" Width="1000">
+    
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+   
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Button
+                Background="Gold"
+                Content="SelectAll"></Button>
+            
+        </StackPanel>
+
+        <ListBox
+            BorderBrush="Black"
+            Grid.Column="1"
+            Padding="10">
+            
+        </ListBox>
     </Grid>
 </Window>

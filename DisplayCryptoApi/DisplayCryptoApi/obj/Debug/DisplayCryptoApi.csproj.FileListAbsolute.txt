@@ -14,3 +14,4 @@ D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCry
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.pdb
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\MainView.g.cs
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\MainView.baml
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\GeneratedInternalTypeHelper.g.cs
