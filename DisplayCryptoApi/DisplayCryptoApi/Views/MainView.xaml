@@ -20,16 +20,54 @@
 
         <StackPanel>
             <Button
+                Command="{Binding SelectAllCointsCommand}"
                 Background="Gold"
                 Content="SelectAll"></Button>
             
         </StackPanel>
 
         <ListBox
+            ItemsSource="{Binding Coins}"
             BorderBrush="Black"
             Grid.Column="1"
             Padding="10">
-            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Width="300"
+                        BorderBrush="Red"
+                        BorderThickness="2">
+                        <StackPanel
+                            Margin="5">
+                            <Image
+                                Width="100"
+                                Height="50"
+                                Source="{Binding Image}"></Image>
+                            <StackPanel
+                                Orientation="Horizontal">
+                                <Label
+                                    FontSize="15"
+                                    Content="Name:"></Label>
+                                <TextBlock
+                                    Margin="5"
+                                    FontSize="15"
+                                    Text="{Binding Name}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel
+                                Orientation="Horizontal">
+                                <Label
+                                    FontSize="15"
+                                    Content="Price:"></Label>
+                                <TextBlock
+                                    Margin="5"
+                                    FontSize="15"
+                                    Text="{Binding Price}"></TextBlock>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                     </Border>
+                 </DataTemplate>
+             </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Window>

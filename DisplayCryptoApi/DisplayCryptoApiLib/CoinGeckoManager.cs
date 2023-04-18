@@ -1,9 +1,13 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -12,10 +16,15 @@ namespace DisplayCryptoApiLib
     public class CoinGeckoManager
     {
         private readonly NetworkManager networkManager;
+        JsonSerializerOptions options;
 
         public CoinGeckoManager()
         {
             networkManager = new NetworkManager();
+
+            options = new JsonSerializerOptions();
+            options.PropertyNameCaseInsensitive = true;
+            options.Converters.Add(new JsonStringEnumConverter());
         }
 
         public ObservableCollection<Coin> GetAllCoins()
@@ -25,22 +34,25 @@ namespace DisplayCryptoApiLib
 
         public ObservableCollection<Coin> GetCoins()
         {
-            var coins = new ObservableCollection<Coin>();
+            ObservableCollection<Coin> coins = null;
             try
             {
                 string url = $"{CoinGeckoApiConfig.BaseUrl}";
-                string json = networkManager.GetJson(url);
-                JObject cgSearch = JObject.Parse(json);
-                IList<JToken> results = cgSearch[""].Children().ToList();
 
-                foreach (JToken result in results)
-                {
-                    coins.Add(new Coin
-                    {
-                        Name = result["name"].ToString(),
-                        Price = result["rub"].ToString()
-                    });
-                }
+
+                string json = networkManager.GetJson(url);
+                coins = System.Text.Json.JsonSerializer.Deserialize<ObservableCollection<Coin>>(json, options);
+
+
+                //foreach (var result in results)
+                //{
+                //    coins.Add(new Coin
+                //    {
+                //        Name = result.Name,
+
+                //    });
+                //}
+
             }
             catch (Exception)
             {

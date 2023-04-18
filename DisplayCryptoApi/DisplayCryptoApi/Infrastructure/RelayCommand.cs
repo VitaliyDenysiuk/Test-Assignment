@@ -12,7 +12,7 @@ namespace DisplayCryptoApi.Infrastructure
         private readonly Action<object> action;
         private readonly Predicate<object> predicate;
 
-        public RelayCommand(Action<object> action, Predicate<object> predicate)
+        public RelayCommand(Action<object> action, Predicate<object> predicate = null)
         {
             this.action = action;
             this.predicate = predicate;
