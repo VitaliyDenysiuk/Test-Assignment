@@ -1,0 +1,16 @@
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\DisplayCryptoApi.exe.config
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\DisplayCryptoApi.exe
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\DisplayCryptoApi.pdb
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.csproj.AssemblyReference.cache
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.csproj.SuggestedBindingRedirects.cache
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\App.g.cs
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi_MarkupCompile.cache
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi_MarkupCompile.lref
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.g.resources
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.Properties.Resources.resources
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.csproj.GenerateResource.cache
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.csproj.CoreCompileInputs.cache
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.exe
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.pdb
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\MainView.g.cs
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\MainView.baml
