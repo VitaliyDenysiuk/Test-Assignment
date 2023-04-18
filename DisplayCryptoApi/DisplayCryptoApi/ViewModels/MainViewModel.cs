@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DisplayCryptoApiLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace DisplayCryptoApi.ViewModels
 {
     public class MainViewModel
     {
-        
+        private CoinGeckoManager cgManager;
     }
 }
