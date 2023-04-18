@@ -16,9 +16,7 @@ D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\Main
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\MainView.baml
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\DisplayCryptoApiLib.dll
-D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\Newtonsoft.Json.dll
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\DisplayCryptoApiLib.pdb
-D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\Newtonsoft.Json.xml
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\DisplayCryptoApi.csproj.CopyComplete
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Text.Json.dll
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Memory.dll

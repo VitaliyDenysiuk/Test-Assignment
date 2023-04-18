@@ -72,10 +72,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coin.cs" />
+    <Compile Include="Models\Coin.cs" />
     <Compile Include="CoinGeckoApiConfig.cs" />
     <Compile Include="CoinGeckoManager.cs" />
-    <Compile Include="Image.cs" />
+    <Compile Include="Models\CurrentPrice.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\MarketData.cs" />
+    <Compile Include="Models\TotalVolume.cs" />
     <Compile Include="NetworkManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

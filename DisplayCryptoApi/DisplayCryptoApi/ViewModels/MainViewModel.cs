@@ -28,9 +28,12 @@ namespace DisplayCryptoApi.ViewModels
             }
         }
 
+        public double W { get; set; }
+
         public MainViewModel()
         {
             cgManager = new CoinGeckoManager();
+            W = SystemParameters.PrimaryScreenWidth - 180;
             InitCommands();
         }
 

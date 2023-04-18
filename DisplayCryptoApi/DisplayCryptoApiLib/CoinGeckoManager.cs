@@ -39,19 +39,8 @@ namespace DisplayCryptoApiLib
             {
                 string url = $"{CoinGeckoApiConfig.BaseUrl}";
 
-
                 string json = networkManager.GetJson(url);
                 coins = System.Text.Json.JsonSerializer.Deserialize<ObservableCollection<Coin>>(json, options);
-
-
-                //foreach (var result in results)
-                //{
-                //    coins.Add(new Coin
-                //    {
-                //        Name = result.Name,
-
-                //    });
-                //}
 
             }
             catch (Exception)
@@ -66,15 +55,13 @@ namespace DisplayCryptoApiLib
             var coins = new ObservableCollection<Coin>();
             try
             {
-                string url = $"{CoinGeckoApiConfig.BaseUrl}{id}";
-                string json = networkManager.GetJson(url);
-                JObject cgSearch = JObject.Parse(json);
 
-                coins.Add(new Coin
-                {
-                    Name = cgSearch["name"].ToString(),
-                    Price = cgSearch["rub"].ToString()
-                });
+                string url = $"{CoinGeckoApiConfig.BaseUrl}{id}";
+
+                string json = networkManager.GetJson(url);
+                Coin coin = System.Text.Json.JsonSerializer.Deserialize<Coin>(json, options);
+
+                coins.Add(coin);
             }
             catch (Exception)
             {

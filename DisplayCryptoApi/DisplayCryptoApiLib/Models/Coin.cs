@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DisplayCryptoApiLib.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,9 @@ namespace DisplayCryptoApiLib
 {
     public class Coin
     {
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
-        public string Volume { get; set; }
         public Image Image { get; set; }
-        public string PriceChange { get; set; }
-        public string MarketName { get; set; }
-        public string LinkMarket { get; set; }
+        public MarketData Market_data { get; set; }
     }
 }

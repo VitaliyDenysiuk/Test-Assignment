@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DisplayCryptoApi"
         xmlns:vm="clr-namespace:DisplayCryptoApi.ViewModels"
         mc:Ignorable="d"
-        Title="MainView" Height="800" Width="1000">
+        Title="MainView" Height="800" Width="1200">
     
     <Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
@@ -20,54 +20,186 @@
 
         <StackPanel>
             <Button
+                Height="30"
+                FontSize="20"
                 Command="{Binding SelectAllCointsCommand}"
                 Background="Gold"
                 Content="SelectAll"></Button>
-            
+
         </StackPanel>
 
-        <ListBox
+        <StackPanel
+            Grid.Column="1">
+            <StackPanel
+                Height="30"
+                Orientation="Horizontal">
+                <TextBlock
+                    Margin="20 0 10 0"
+                    FontSize="20"
+                    Width="80"
+                    Text="Image"></TextBlock>
+                <TextBlock
+                    Margin="10 0 10 0"
+                    FontSize="20"
+                    Width="200"
+                    Text="Name"></TextBlock>
+                <TextBlock
+                    Margin="10 0 10 0"
+                    FontSize="20"
+                    Width="200"
+                    Text="Price"></TextBlock>
+                <TextBlock
+                    Margin="10 0 10 0"
+                    FontSize="20"
+                    Width="250"
+                    Text="Volue"></TextBlock>
+                <TextBlock
+                    Margin="10 0 10 0"
+                    FontSize="20"
+                    Width="80"
+                    Text="Image"></TextBlock>
+                <TextBlock
+                    Margin="10 0 10 0"
+                    FontSize="20"
+                    Width="80"
+                    Text="Image"></TextBlock>
+            </StackPanel>
+
+            <ListBox
             ItemsSource="{Binding Coins}"
             BorderBrush="Black"
-            Grid.Column="1"
             Padding="10">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border
-                        Width="300"
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border
                         BorderBrush="Red"
-                        BorderThickness="2">
-                        <StackPanel
-                            Margin="5">
-                            <Image
-                                Width="100"
+                        BorderThickness="2"
+                        Width="{Binding ElementName=widthDisplay,Path=Text}">
+                            <StackPanel
+                            Orientation="Horizontal"
+                            Margin="1">
+                                <Button
+                                Margin="20 1 10 1"
                                 Height="50"
-                                Source="{Binding Image}"></Image>
-                            <StackPanel
-                                Orientation="Horizontal">
-                                <Label
-                                    FontSize="15"
-                                    Content="Name:"></Label>
+                                Width="50"
+                                Command="{Binding 
+                                ElementName=LinkButton, 
+                                Path=Command}">
+                                    <Button.Background>
+                                        <ImageBrush
+                                        ImageSource="{Binding Image.Large}"
+                                        Stretch="Uniform"></ImageBrush>
+                                    </Button.Background>
+                                </Button>
+
                                 <TextBlock
-                                    Margin="5"
-                                    FontSize="15"
-                                    Text="{Binding Name}"></TextBlock>
+                                Margin="10 5 10 5"
+                                Width="200"
+                                FontSize="25"
+                                Text="{Binding Name}"></TextBlock>
+
+                                <ComboBox
+                                Margin="10 0 10 0"
+                                Width="200"
+                                Height="35">
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Eur"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Current_price.Eur}"></TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Usd"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Current_price.Usd}"></TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Uah"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Current_price.Uah}"></TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Rub"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Current_price.Rub}"></TextBlock>
+                                    </WrapPanel>
+                                </ComboBox>
+
+                                <ComboBox
+                                Margin="10 0 10 0"
+                                Width="250"
+                                Height="35">
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Eur"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Total_volume.Eur}"></TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Usd"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Total_volume.Usd}"></TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Uah"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Total_volume.Uah}"></TextBlock>
+                                    </WrapPanel>
+                                    <WrapPanel>
+                                        <Label
+                                        Margin="0 0 10 0"
+                                        Padding="0"
+                                        FontSize="20"
+                                        Content="Rub"></Label>
+                                        <TextBlock
+                                        FontSize="20"
+                                    Text="{Binding Market_data.Total_volume.Rub}"></TextBlock>
+                                    </WrapPanel>
+                                </ComboBox>
+
                             </StackPanel>
-                            <StackPanel
-                                Orientation="Horizontal">
-                                <Label
-                                    FontSize="15"
-                                    Content="Price:"></Label>
-                                <TextBlock
-                                    Margin="5"
-                                    FontSize="15"
-                                    Text="{Binding Price}"></TextBlock>
-                            </StackPanel>
-                            
-                        </StackPanel>
-                     </Border>
-                 </DataTemplate>
-             </ListBox.ItemTemplate>
-        </ListBox>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <TextBlock
+            x:Name="widthDisplay"
+            Visibility="Collapsed"
+            Text="{Binding W}"></TextBlock>
     </Grid>
 </Window>
