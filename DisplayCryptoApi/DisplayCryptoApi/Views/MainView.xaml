@@ -14,70 +14,183 @@
    
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
+
+        
+        <Grid
+            Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
             <Button
-                Height="30"
-                FontSize="20"
-                Command="{Binding SelectAllCointsCommand}"
-                Background="Gold"
-                Content="SelectAll"></Button>
-
-        </StackPanel>
-
-        <StackPanel
-            Grid.Column="1">
+            Height="30"
+            FontSize="20"
+            Command="{Binding SelectAllCointsCommand}"
+            Background="Gold"
+            Content="SelectAll"></Button>
             <StackPanel
-                Height="30"
-                Orientation="Horizontal">
-                <TextBlock
-                    Margin="20 0 10 0"
+                Grid.Row="1">
+                
+                <Label
                     FontSize="20"
+                    Margin="10 10 0 0"
+                    Content="Search:"></Label>
+                <TextBox
+                    x:Name="search"
+                    FontSize="20"
+                    Margin="10 0 10 10">
+                    <TextBox.InputBindings>
+                        <KeyBinding
+                        Key="Enter"
+                        Command="{Binding SearchNameCommand,UpdateSourceTrigger=PropertyChanged}"
+                        CommandParameter="{Binding Text,ElementName=search}"></KeyBinding>
+                    </TextBox.InputBindings>
+                </TextBox>
+                
+                <Expander
+                    Header="Sort (usd)"
+                    Margin="10"
+                    FontSize="20">
+                    <StackPanel>
+                        <Expander
+                            Header="Price">
+                            <StackPanel>
+                                <Button
+                                    Margin="2"
+                                    Content="Biggest to smallest"
+                                    Command="{Binding SortPriceMaxToMinCommand}"></Button>
+                                <Button
+                                    Margin="2"
+                                    Content="Smallest to biggest"
+                                    Command="{Binding SortPriceMinToMaxCommand}"></Button>
+                            </StackPanel>
+                            
+                        </Expander>
+                        <Expander
+                            Header="Volume">
+                            <StackPanel>
+                                <Button
+                                    Margin="2"
+                                    Content="Biggest to smallest"
+                                    Command="{Binding SortVolumeMaxToMinCommand}"></Button>
+                                <Button
+                                    Margin="2"
+                                    Content="Smallest to biggest"
+                                    Command="{Binding SortVolumeMinToMaxCommand}"></Button>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <Button
+                Grid.Row="2"
+                Content="Setting"
+                FontSize="25"
+                Background="GreenYellow"></Button>
+        </Grid>
+
+        <ListBox
+            Grid.Row="1"
+            Grid.Column="1">
+
+            <StackPanel
+            Grid.Column="1">
+                <StackPanel
+                    Height="30"
+                    Orientation="Horizontal">
+                    <StackPanel.Resources>
+                    <Style
+                        TargetType="TextBlock">
+                        <Setter
+                            Property="FontSize"
+                            Value="20"></Setter>
+                        <Setter
+                            Property="Margin"
+                            Value="10 0 10 0"></Setter>
+                    </Style>
+                    </StackPanel.Resources>
+                
+                    <TextBlock
                     Width="80"
                     Text="Image"></TextBlock>
-                <TextBlock
-                    Margin="10 0 10 0"
-                    FontSize="20"
+                    <TextBlock
                     Width="200"
                     Text="Name"></TextBlock>
-                <TextBlock
-                    Margin="10 0 10 0"
-                    FontSize="20"
+                    <TextBlock
                     Width="200"
                     Text="Price"></TextBlock>
-                <TextBlock
-                    Margin="10 0 10 0"
-                    FontSize="20"
+                    <TextBlock
                     Width="250"
-                    Text="Volue"></TextBlock>
-                <TextBlock
+                    Text="Volume"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="24h"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="7d"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="14d"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="30d"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="60d"></TextBlock>
+                    <TextBlock
                     Margin="10 0 10 0"
                     FontSize="20"
-                    Width="80"
-                    Text="Image"></TextBlock>
-                <TextBlock
-                    Margin="10 0 10 0"
-                    FontSize="20"
-                    Width="80"
-                    Text="Image"></TextBlock>
+                    Width="100"
+                    Text="200d"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="1y"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="not"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="not"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="not"></TextBlock>
+                    <TextBlock
+                    Width="100"
+                    Text="not"></TextBlock>
+                </StackPanel>
             </StackPanel>
 
             <ListBox
-            ItemsSource="{Binding Coins}"
+            Grid.Row="1"
+            Grid.Column="1"
+            ItemsSource="{Binding SelectedCoins}"
             BorderBrush="Black"
-            Padding="10">
+            Padding="5">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border
                         BorderBrush="Red"
-                        BorderThickness="2"
-                        Width="{Binding ElementName=widthDisplay,Path=Text}">
+                        BorderThickness="2">
+
                             <StackPanel
                             Orientation="Horizontal"
                             Margin="1">
+                                <StackPanel.Resources>
+                                    <Style
+                                        TargetType="TextBlock">
+                                        <Setter
+                                            Property="FontSize"
+                                            Value="20"></Setter>
+                                        <Setter
+                                            Property="Margin"
+                                            Value="10 5 10 5"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
                                 <Button
                                 Margin="20 1 10 1"
                                 Height="50"
@@ -99,6 +212,7 @@
                                 Text="{Binding Name}"></TextBlock>
 
                                 <ComboBox
+                                    SelectedIndex="1"
                                 Margin="10 0 10 0"
                                 Width="200"
                                 Height="35">
@@ -145,6 +259,7 @@
                                 </ComboBox>
 
                                 <ComboBox
+                                    SelectedIndex="1"
                                 Margin="10 0 10 0"
                                 Width="250"
                                 Height="35">
@@ -190,16 +305,62 @@
                                     </WrapPanel>
                                 </ComboBox>
 
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_24h}"></TextBlock>
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_7d}"></TextBlock>
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_14d}"></TextBlock>
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_30d}"></TextBlock>
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_60d}"></TextBlock>
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_200d}"></TextBlock>
+                                <TextBlock
+                                Width="100"
+                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+
+                                
+                                <TextBlock
+                                Margin="10 5 10 5"
+                                Width="100"
+                                FontSize="20"
+                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+                                <TextBlock
+                                Margin="10 5 10 5"
+                                Width="100"
+                                FontSize="20"
+                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+                                <TextBlock
+                                Margin="10 5 10 5"
+                                Width="100"
+                                FontSize="20"
+                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+                                <TextBlock
+                                Margin="10 5 10 5"
+                                Width="100"
+                                FontSize="20"
+                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+                                <TextBlock
+                                Margin="10 5 10 5"
+                                Width="100"
+                                FontSize="20"
+                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+
+
                             </StackPanel>
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </StackPanel>
-
-        <TextBlock
-            x:Name="widthDisplay"
-            Visibility="Collapsed"
-            Text="{Binding W}"></TextBlock>
+        </ListBox>
+        
     </Grid>
 </Window>
