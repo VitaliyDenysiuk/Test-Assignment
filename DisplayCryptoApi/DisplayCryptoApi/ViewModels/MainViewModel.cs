@@ -1,9 +1,11 @@
 ﻿using DisplayCryptoApi.Extensions;
 using DisplayCryptoApi.Infrastructure;
 using DisplayCryptoApiLib;
+using DisplayCryptoApiLib.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,13 +60,72 @@ namespace DisplayCryptoApi.ViewModels
             }
         }
 
+        private string isEnabledGrid;
+        public string IsEnabledGrid
+        {
+            get
+            {
+                return isEnabledGrid;
+            }
+            set
+            {
+                isEnabledGrid = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+        private string visibilityListCoin;
+        public string VisibilityListCoin
+        {
+            get
+            {
+                return visibilityListCoin;
+            }
+            set
+            {
+                visibilityListCoin = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+        private string visibilityListMarket;
+        public string VisibilityListMarket
+        {
+            get
+            {
+                return visibilityListMarket;
+            }
+            set
+            {
+                visibilityListMarket = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+
+
+        private Ticker selectedTicker;
+        public Ticker SelectedTicker
+        {
+            get
+            {
+                return selectedTicker;
+            }
+            set
+            {
+                selectedTicker = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
             cgManager = new CoinGeckoManager();
 
-            //Coins = cgManager.GetCoins();
+            
             SelectedCoins = cgManager.GetCoins();
             SelectedCoin = new Coin();
+
+            IsEnabledGrid = "true";
+            VisibilityListCoin = "Visible";
+            VisibilityListMarket = "Hidden";
 
             InitCommands();
         }
@@ -93,7 +154,26 @@ namespace DisplayCryptoApi.ViewModels
             MoreDataCoinCommand = new RelayCommand(param =>
             {
                 SelectedMoreDataCoin = cgManager.GetIdCoint(selectedCoin.Id);
-                MessageBox.Show($"{selectedCoin.Id} = {SelectedMoreDataCoin.Id}");
+                VisibilityListCoin = "Hidden";
+                VisibilityListMarket = "Visible";
+                IsEnabledGrid = "false";
+            });
+            LinkMarketCommand = new RelayCommand(param =>
+            {
+                try
+                {
+                    Process.Start(SelectedTicker.Trade_url);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            });
+            BackCommand = new RelayCommand(param =>
+            {
+                VisibilityListCoin = "Visible";
+                VisibilityListMarket = "Hidden";
+                IsEnabledGrid = "true";
             });
 
             SortPriceMaxToMinCommand = new RelayCommand(param =>
@@ -131,6 +211,8 @@ namespace DisplayCryptoApi.ViewModels
 
         public ICommand SearchNameCommand { get; private set; }
         public ICommand MoreDataCoinCommand { get; private set; }
+        public ICommand LinkMarketCommand { get; private set; }
+        public ICommand BackCommand { get; private set; }
 
         public ICommand SortPriceMaxToMinCommand { get; private set; }
         public ICommand SortPriceMinToMaxCommand { get; private set; }

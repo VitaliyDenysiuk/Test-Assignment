@@ -20,7 +20,8 @@
 
 
         
-        <Grid>
+        <Grid
+            IsEnabled="{Binding IsEnabledGrid}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -95,6 +96,8 @@
         </Grid>
 
         <ScrollViewer
+            Visibility="{Binding VisibilityListCoin}"
+            x:Name="viewCoins"
             Grid.Column="1">
             <StackPanel>
                 
@@ -375,9 +378,132 @@
 
                 <Button
                     Command="{Binding MoreDataCoinCommand}"
-                    x:Name="moreData"></Button>
+                    x:Name="moreData"
+                    Visibility="Hidden"></Button>
             </StackPanel>
         </ScrollViewer>
-        
+
+        <ScrollViewer
+            Visibility="{Binding VisibilityListMarket}"
+            x:Name="viewCoinMarket"
+            Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <WrapPanel
+                    Margin="5"
+                    Background="Gray">
+                    <WrapPanel.Resources>
+                        <Style
+                            TargetType="TextBlock">
+                            <Setter
+                                Property="Margin"
+                                Value="30"></Setter>
+                            <Setter
+                                Property="FontSize"
+                                Value="25"></Setter>
+                            <Setter
+                                 Property="Width"
+                                 Value="200"></Setter>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <Image
+                        Source="{Binding SelectedMoreDataCoin.Image.Large}"
+                        Width="70"
+                        Height="70"
+                        Margin="30 10 30 10"
+                        Stretch="Uniform"
+                        ></Image>
+                    <TextBlock
+                        Text="{Binding SelectedMoreDataCoin.Name}"></TextBlock>
+                    <TextBlock
+                        Text="{Binding SelectedMoreDataCoin.Market_data.Current_price.Usd}"></TextBlock>
+                    <TextBlock
+                        Text="{Binding SelectedMoreDataCoin.Market_data.Total_volume.Usd}"></TextBlock>
+                    <Button
+                        Width="200"
+                        Height="50"
+                        FontSize="25"
+                        Content="Back"
+                        Command="{Binding BackCommand}"></Button>
+                </WrapPanel>
+
+                <ListBox
+                    Grid.Row="1"
+                    ItemsSource="{Binding SelectedMoreDataCoin.Tickers}"
+                    SelectedItem="{Binding SelectedTicker}"
+                    Margin="5"
+                    BorderBrush="Black">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style
+                    TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger
+                            Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsSelected" Value="True"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                BorderBrush="Red"
+                                BorderThickness="2"
+                                Padding="5">
+                                <StackPanel
+                                    Margin="2"
+                                    Orientation="Horizontal">
+                                    <StackPanel.Resources>
+                                        <Style
+                                            TargetType="TextBlock">
+                                            <Setter
+                                                Property="Margin"
+                                                Value="10"></Setter>
+                                            <Setter
+                                                Property="FontSize"
+                                                Value="25"></Setter>
+                                            <Setter
+                                                Property="Width"
+                                                Value="200"></Setter>
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <Button
+                                        Content="Link"
+                                        Width="150"
+                                        FontSize="25"
+                                        Command="{Binding ElementName=linkMarket,
+                                        Path=Command}"></Button>
+                                    <TextBlock
+                                        Text="{Binding Market.Name}"></TextBlock>
+                                    <TextBlock
+                                        Text="{Binding Base}"></TextBlock>
+                                    <TextBlock
+                                        Text="{Binding Target}"></TextBlock>
+                                    <TextBlock
+                                        Text="{Binding Last}"></TextBlock>
+                                    <TextBlock
+                                        Width="250"
+                                        Text="{Binding Volume}"></TextBlock>
+                                    
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button
+                    Command="{Binding LinkMarketCommand}"
+                    x:Name="linkMarket"
+                    Visibility="Hidden"></Button>
+
+            </Grid>
+        </ScrollViewer>
+
     </Grid>
 </Window>
