@@ -50,25 +50,24 @@ namespace DisplayCryptoApiLib
             return coins;
         }
 
-        public ObservableCollection<Coin> GetIdCoint(string id)
+        public Coin GetIdCoint(string id)
         {
-            var coins = new ObservableCollection<Coin>();
+            var coin = new Coin();
             try
             {
 
                 string url = $"{CoinGeckoApiConfig.BaseUrl}{id}";
 
                 string json = networkManager.GetJson(url);
-                Coin coin = System.Text.Json.JsonSerializer.Deserialize<Coin>(json, options);
+                coin = System.Text.Json.JsonSerializer.Deserialize<Coin>(json, options);
 
-                coins.Add(coin);
             }
             catch (Exception)
             {
 
             }
 
-            return coins;
+            return coin;
         }
     }
 }

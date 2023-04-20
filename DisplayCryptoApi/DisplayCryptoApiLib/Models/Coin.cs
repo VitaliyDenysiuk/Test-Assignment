@@ -13,5 +13,7 @@ namespace DisplayCryptoApiLib
         public string Name { get; set; }
         public Image Image { get; set; }
         public MarketData Market_data { get; set; }
+
+        public List<Ticker> Tickers { get; set; }
     }
 }

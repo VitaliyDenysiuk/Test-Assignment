@@ -20,13 +20,13 @@
 
 
         
-        <Grid
-            Grid.Row="1">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
+            
             <Button
             Height="30"
             FontSize="20"
@@ -94,14 +94,14 @@
                 Background="GreenYellow"></Button>
         </Grid>
 
-        <ListBox
-            Grid.Row="1"
+        <ScrollViewer
             Grid.Column="1">
-
-            <StackPanel
+            <StackPanel>
+                
+                <StackPanel
             Grid.Column="1">
                 <StackPanel
-                    Height="30"
+                    Height="34"
                     Orientation="Horizontal">
                     <StackPanel.Resources>
                     <Style
@@ -165,13 +165,25 @@
                 </StackPanel>
             </StackPanel>
 
-            <ListBox
-            Grid.Row="1"
-            Grid.Column="1"
-            ItemsSource="{Binding SelectedCoins}"
-            BorderBrush="Black"
-            Padding="5">
-                <ListBox.ItemTemplate>
+                <ListBox
+                    ItemsSource="{Binding SelectedCoins}"
+                    SelectedItem="{Binding SelectedCoin}"
+                    BorderBrush="Black"
+                    Padding="5">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style
+                            TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger
+                                    Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsSelected" Value="True"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border
                         BorderBrush="Red"
@@ -196,7 +208,7 @@
                                 Height="50"
                                 Width="50"
                                 Command="{Binding 
-                                ElementName=LinkButton, 
+                                ElementName=moreData, 
                                 Path=Command}">
                                     <Button.Background>
                                         <ImageBrush
@@ -360,7 +372,12 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </ListBox>
+
+                <Button
+                    Command="{Binding MoreDataCoinCommand}"
+                    x:Name="moreData"></Button>
+            </StackPanel>
+        </ScrollViewer>
         
     </Grid>
 </Window>

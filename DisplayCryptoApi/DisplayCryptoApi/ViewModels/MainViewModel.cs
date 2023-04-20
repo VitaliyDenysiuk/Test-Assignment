@@ -15,19 +15,6 @@ namespace DisplayCryptoApi.ViewModels
     public class MainViewModel : BaseNotifyPropertyChanged
     {
         private CoinGeckoManager cgManager;
-        private ObservableCollection<Coin> coins;
-        public ObservableCollection<Coin> Coins
-        {
-            get
-            {
-                return coins;
-            }
-            set
-            {
-                coins = value;
-                NotifyOfPropertyChanged();
-            }
-        }
 
         private ObservableCollection<Coin> selectedCoins;
         public ObservableCollection<Coin> SelectedCoins
@@ -43,12 +30,41 @@ namespace DisplayCryptoApi.ViewModels
             }
         }
 
+        private Coin selectedCoin;
+        public Coin SelectedCoin
+        {
+            get
+            {
+                return selectedCoin;
+            }
+            set
+            {
+                selectedCoin = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+
+        private Coin selectedMoreDataCoin;
+        public Coin SelectedMoreDataCoin
+        {
+            get
+            {
+                return selectedMoreDataCoin;
+            }
+            set
+            {
+                selectedMoreDataCoin = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
             cgManager = new CoinGeckoManager();
 
-            Coins = cgManager.GetCoins();
+            //Coins = cgManager.GetCoins();
             SelectedCoins = cgManager.GetCoins();
+            SelectedCoin = new Coin();
 
             InitCommands();
         }
@@ -65,7 +81,7 @@ namespace DisplayCryptoApi.ViewModels
             SearchNameCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
-                foreach (var coin in Coins)
+                foreach (var coin in cgManager.GetCoins())
                 {
                     if (coin.Name.StartsWith((string)param))
                     {
@@ -74,18 +90,24 @@ namespace DisplayCryptoApi.ViewModels
                 }
             });
 
+            MoreDataCoinCommand = new RelayCommand(param =>
+            {
+                SelectedMoreDataCoin = cgManager.GetIdCoint(selectedCoin.Id);
+                MessageBox.Show($"{selectedCoin.Id} = {SelectedMoreDataCoin.Id}");
+            });
+
             SortPriceMaxToMinCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
 
-                SelectedCoins = Coins.OrderByDescending(c => c.Market_data.Current_price.Usd).ToObservableCollection();
+                SelectedCoins = cgManager.GetCoins().OrderByDescending(c => c.Market_data.Current_price.Usd).ToObservableCollection();
 
             });
             SortPriceMinToMaxCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
 
-                SelectedCoins = Coins.OrderBy(c => c.Market_data.Current_price.Usd).ToObservableCollection();
+                SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Current_price.Usd).ToObservableCollection();
 
             });
 
@@ -93,14 +115,14 @@ namespace DisplayCryptoApi.ViewModels
             {
                 SelectedCoins = new ObservableCollection<Coin>();
 
-                SelectedCoins = Coins.OrderByDescending(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
+                SelectedCoins = cgManager.GetCoins().OrderByDescending(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
 
             });
             SortVolumeMinToMaxCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
 
-                SelectedCoins = Coins.OrderBy(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
+                SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
 
             });
         }
@@ -108,6 +130,7 @@ namespace DisplayCryptoApi.ViewModels
         public ICommand SelectAllCointsCommand { get; private set; }
 
         public ICommand SearchNameCommand { get; private set; }
+        public ICommand MoreDataCoinCommand { get; private set; }
 
         public ICommand SortPriceMaxToMinCommand { get; private set; }
         public ICommand SortPriceMinToMaxCommand { get; private set; }

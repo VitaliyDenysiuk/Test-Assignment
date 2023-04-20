@@ -78,7 +78,9 @@
     <Compile Include="CoinGeckoManager.cs" />
     <Compile Include="Models\CurrentPrice.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Market.cs" />
     <Compile Include="Models\MarketData.cs" />
+    <Compile Include="Models\Ticker.cs" />
     <Compile Include="Models\TotalVolume.cs" />
     <Compile Include="NetworkManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

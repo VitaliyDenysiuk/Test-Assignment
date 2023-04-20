@@ -17,5 +17,6 @@ namespace DisplayCryptoApiLib.Models
         public double Price_change_percentage_60d { get; set; }
         public double Price_change_percentage_200d { get; set; }
         public double Price_change_percentage_1y { get; set; }
+
     }
 }
