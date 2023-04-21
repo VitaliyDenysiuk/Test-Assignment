@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -156,18 +157,15 @@ namespace DisplayCryptoApi.ViewModels
             VisibilityListMarket = "Hidden";
 
 
-            //VisibilityDataGrid = "Visible";
-            //VisibilitySetingGrid = "Hidden";
-
-            VisibilityDataGrid = "Hidden";
-            VisibilitySetingsGrid = "Visible";
+            VisibilityDataGrid = "Visible";
+            VisibilitySetingsGrid = "Hidden";
 
             InitCommands();
         }
 
         private void InitCommands()
         {
-            SelectAllCointsCommand = new RelayCommand(param=>
+            SelectAllCointsCommand = new RelayCommand(param =>
             {
                 Task.Run(() =>
                 {
@@ -254,6 +252,10 @@ namespace DisplayCryptoApi.ViewModels
 
             ChangeLightStyleCommand = new RelayCommand(param =>
             {
+                ResourceDictionary resourceDictionary = new ResourceDictionary();
+                resourceDictionary = Application.Current.MainWindow.Resources;
+
+
                 ResourceDictionary resource = new ResourceDictionary
                 {
                     Source = new Uri("Views/Styles/StyleLight.xaml", UriKind.Relative)
@@ -268,6 +270,23 @@ namespace DisplayCryptoApi.ViewModels
                 };
                 Application.Current.MainWindow.Resources = resource;
             });
+
+            ChangeLangENCommand = new RelayCommand(param =>
+            {
+                CultureInfo en = new CultureInfo("en-US");
+                App.Language = en;
+            });
+            ChangeLangRUCommand = new RelayCommand(param =>
+            {
+                CultureInfo ru = new CultureInfo("ru-RU");
+                App.Language = ru;
+            });
+            ChangeLangUACommand = new RelayCommand(param =>
+            {
+                CultureInfo ua = new CultureInfo("ua-UA");
+                App.Language = ua;
+            });
+
         }
 
         public ICommand SelectAllCointsCommand { get; private set; }

@@ -554,6 +554,7 @@
 
 
         <Grid
+            
             x:Name="setingsGrid"
             Visibility="{Binding VisibilitySetingsGrid}">
             <StackPanel
@@ -587,7 +588,7 @@
                 </GroupBox>
 
                 <GroupBox
-                     Margin="10"
+                    Margin="10"
                     Width="500"
                     FontSize="20"
                     Header="Styles">

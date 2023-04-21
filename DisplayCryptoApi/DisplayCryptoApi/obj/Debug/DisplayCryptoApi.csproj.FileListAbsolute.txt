@@ -39,3 +39,6 @@ D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Buf
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\Styles\StyleDark.baml
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\Styles\StyleLight.baml
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Resources\lang.en-US.baml
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Resources\lang.ru-RU.baml
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Resources\lang.ua-UA.baml
