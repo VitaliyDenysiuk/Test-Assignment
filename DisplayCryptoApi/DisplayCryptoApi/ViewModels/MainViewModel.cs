@@ -114,16 +114,16 @@ namespace DisplayCryptoApi.ViewModels
                 NotifyOfPropertyChanged();
             }
         }
-        private string visibilitySetingGrid;
-        public string VisibilitySetingGrid
+        private string visibilitySetingsGrid;
+        public string VisibilitySetingsGrid
         {
             get
             {
-                return visibilitySetingGrid;
+                return visibilitySetingsGrid;
             }
             set
             {
-                visibilitySetingGrid = value;
+                visibilitySetingsGrid = value;
                 NotifyOfPropertyChanged();
             }
         }
@@ -160,7 +160,7 @@ namespace DisplayCryptoApi.ViewModels
             //VisibilitySetingGrid = "Hidden";
 
             VisibilityDataGrid = "Hidden";
-            VisibilitySetingGrid = "Visible";
+            VisibilitySetingsGrid = "Visible";
 
             InitCommands();
         }
@@ -241,15 +241,32 @@ namespace DisplayCryptoApi.ViewModels
 
             });
 
-            OpenSettingCommand = new RelayCommand(param =>
+            OpenSettingsCommand = new RelayCommand(param =>
             {
                 VisibilityDataGrid = "Hidden";
-                VisibilitySetingGrid = "Visible";
+                VisibilitySetingsGrid = "Visible";
             });
-            CloseSettingCommand = new RelayCommand(param =>
+            CloseSettingsCommand = new RelayCommand(param =>
             {
-                VisibilitySetingGrid = "Hidden";
+                VisibilitySetingsGrid = "Hidden";
                 VisibilityDataGrid = "Visible";
+            });
+
+            ChangeLightStyleCommand = new RelayCommand(param =>
+            {
+                ResourceDictionary resource = new ResourceDictionary
+                {
+                    Source = new Uri("Views/Styles/StyleLight.xaml", UriKind.Relative)
+                };
+                Application.Current.MainWindow.Resources = resource;
+            });
+            ChangeDarkStyleCommand = new RelayCommand(param =>
+            {
+                ResourceDictionary resource = new ResourceDictionary
+                {
+                    Source = new Uri("Views/Styles/StyleDark.xaml", UriKind.Relative)
+                };
+                Application.Current.MainWindow.Resources = resource;
             });
         }
 
@@ -267,8 +284,8 @@ namespace DisplayCryptoApi.ViewModels
         public ICommand SortVolumeMaxToMinCommand { get; private set; }
         public ICommand SortVolumeMinToMaxCommand { get; private set; }
 
-        public ICommand OpenSettingCommand { get; private set; }
-        public ICommand CloseSettingCommand { get; private set; }
+        public ICommand OpenSettingsCommand { get; private set; }
+        public ICommand CloseSettingsCommand { get; private set; }
 
         public ICommand ChangeLightStyleCommand { get; private set; }
         public ICommand ChangeDarkStyleCommand { get; private set; }

@@ -11,6 +11,10 @@
     <Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
     </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary
+            Source="Styles/StyleDark.xaml"></ResourceDictionary>
+    </Window.Resources>
 
     <Grid>
         
@@ -92,10 +96,10 @@
                 </StackPanel>
                 <Button
                     Grid.Row="2"
-                    Content="Setting"
+                    Content="Settings"
                     FontSize="25"
                     Background="GreenYellow"
-                    Command="{Binding OpenSettingCommand}"></Button>
+                    Command="{Binding OpenSettingsCommand}"></Button>
             </Grid>
 
             <ScrollViewer
@@ -550,15 +554,16 @@
 
 
         <Grid
-            x:Name="setingGrid"
-            Visibility="{Binding VisibilitySetingGrid}">
-            <StackPanel>
+            x:Name="setingsGrid"
+            Visibility="{Binding VisibilitySetingsGrid}">
+            <StackPanel
+                Margin="0 100 0 0">
                 
                 <GroupBox
                     Margin="10"
                     Width="500"
                     FontSize="20"
-                    Header="Language">
+                    Header="Languages">
                     <StackPanel
                         Margin="5">
                         <StackPanel.Resources>
@@ -602,7 +607,7 @@
                     Margin="10"
                     Content="Back"
                     Background="Green"
-                    Command="{Binding CloseSettingCommand}"></Button>
+                    Command="{Binding CloseSettingsCommand}"></Button>
                 
             </StackPanel>
             

@@ -37,3 +37,5 @@ D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Thr
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Buffers.xml
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\Styles\StyleDark.baml
+D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\obj\Debug\Views\Styles\StyleLight.baml

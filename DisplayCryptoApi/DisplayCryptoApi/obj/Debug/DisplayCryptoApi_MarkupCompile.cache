@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\GitHub\Test-Assignment\DisplayCryptoApi\DisplayCryptoApi\App.xaml
-11157096480
+31151224048
 
 91881176791
 14-1055350193
-Views\MainView.xaml;
+Views\MainView.xaml;Views\Styles\StyleDark.xaml;Views\Styles\StyleLight.xaml;
 
 False
 
