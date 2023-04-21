@@ -73,6 +73,7 @@ namespace DisplayCryptoApi.ViewModels
                 NotifyOfPropertyChanged();
             }
         }
+
         private string visibilityListCoin;
         public string VisibilityListCoin
         {
@@ -96,6 +97,33 @@ namespace DisplayCryptoApi.ViewModels
             set
             {
                 visibilityListMarket = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+
+        private string visibilityDataGrid;
+        public string VisibilityDataGrid
+        {
+            get
+            {
+                return visibilityDataGrid;
+            }
+            set
+            {
+                visibilityDataGrid = value;
+                NotifyOfPropertyChanged();
+            }
+        }
+        private string visibilitySetingGrid;
+        public string VisibilitySetingGrid
+        {
+            get
+            {
+                return visibilitySetingGrid;
+            }
+            set
+            {
+                visibilitySetingGrid = value;
                 NotifyOfPropertyChanged();
             }
         }
@@ -126,6 +154,13 @@ namespace DisplayCryptoApi.ViewModels
             IsEnabledGrid = "true";
             VisibilityListCoin = "Visible";
             VisibilityListMarket = "Hidden";
+
+
+            //VisibilityDataGrid = "Visible";
+            //VisibilitySetingGrid = "Hidden";
+
+            VisibilityDataGrid = "Hidden";
+            VisibilitySetingGrid = "Visible";
 
             InitCommands();
         }
@@ -205,11 +240,23 @@ namespace DisplayCryptoApi.ViewModels
                 SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
 
             });
+
+            OpenSettingCommand = new RelayCommand(param =>
+            {
+                VisibilityDataGrid = "Hidden";
+                VisibilitySetingGrid = "Visible";
+            });
+            CloseSettingCommand = new RelayCommand(param =>
+            {
+                VisibilitySetingGrid = "Hidden";
+                VisibilityDataGrid = "Visible";
+            });
         }
 
         public ICommand SelectAllCointsCommand { get; private set; }
 
         public ICommand SearchNameCommand { get; private set; }
+
         public ICommand MoreDataCoinCommand { get; private set; }
         public ICommand LinkMarketCommand { get; private set; }
         public ICommand BackCommand { get; private set; }
@@ -219,5 +266,15 @@ namespace DisplayCryptoApi.ViewModels
 
         public ICommand SortVolumeMaxToMinCommand { get; private set; }
         public ICommand SortVolumeMinToMaxCommand { get; private set; }
+
+        public ICommand OpenSettingCommand { get; private set; }
+        public ICommand CloseSettingCommand { get; private set; }
+
+        public ICommand ChangeLightStyleCommand { get; private set; }
+        public ICommand ChangeDarkStyleCommand { get; private set; }
+
+        public ICommand ChangeLangRUCommand { get; private set; }
+        public ICommand ChangeLangENCommand { get; private set; }
+        public ICommand ChangeLangUACommand { get; private set; }
     }
 }

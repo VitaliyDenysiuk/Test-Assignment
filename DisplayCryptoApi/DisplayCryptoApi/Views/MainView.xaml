@@ -6,504 +6,607 @@
         xmlns:local="clr-namespace:DisplayCryptoApi"
         xmlns:vm="clr-namespace:DisplayCryptoApi.ViewModels"
         mc:Ignorable="d"
-        Title="MainView" Height="800" Width="1200">
+        Title="MainView" Height="800" Width="1400">
     
     <Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
     </Window.DataContext>
-   
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-
         
         <Grid
-            IsEnabled="{Binding IsEnabledGrid}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition Height="40"></RowDefinition>
-            </Grid.RowDefinitions>
-            
-            <Button
+            x:Name="dataGrid"
+            Visibility="{Binding VisibilityDataGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid
+                IsEnabled="{Binding IsEnabledGrid}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button
             Height="30"
             FontSize="20"
             Command="{Binding SelectAllCointsCommand}"
             Background="Gold"
             Content="SelectAll"></Button>
-            <StackPanel
+                <StackPanel
                 Grid.Row="1">
-                
-                <Label
+
+                    <Label
                     FontSize="20"
                     Margin="10 10 0 0"
                     Content="Search:"></Label>
-                <TextBox
+                    <TextBox
                     x:Name="search"
                     FontSize="20"
                     Margin="10 0 10 10">
-                    <TextBox.InputBindings>
-                        <KeyBinding
+                        <TextBox.InputBindings>
+                            <KeyBinding
                         Key="Enter"
                         Command="{Binding SearchNameCommand,UpdateSourceTrigger=PropertyChanged}"
                         CommandParameter="{Binding Text,ElementName=search}"></KeyBinding>
-                    </TextBox.InputBindings>
-                </TextBox>
-                
-                <Expander
+                        </TextBox.InputBindings>
+                    </TextBox>
+
+                    <Expander
                     Header="Sort (usd)"
                     Margin="10"
                     FontSize="20">
-                    <StackPanel>
-                        <Expander
+                        <StackPanel>
+                            <Expander
                             Header="Price">
-                            <StackPanel>
-                                <Button
+                                <StackPanel>
+                                    <Button
                                     Margin="2"
                                     Content="Biggest to smallest"
                                     Command="{Binding SortPriceMaxToMinCommand}"></Button>
-                                <Button
+                                    <Button
                                     Margin="2"
                                     Content="Smallest to biggest"
                                     Command="{Binding SortPriceMinToMaxCommand}"></Button>
-                            </StackPanel>
-                            
-                        </Expander>
-                        <Expander
+                                </StackPanel>
+
+                            </Expander>
+                            <Expander
                             Header="Volume">
-                            <StackPanel>
-                                <Button
+                                <StackPanel>
+                                    <Button
                                     Margin="2"
                                     Content="Biggest to smallest"
                                     Command="{Binding SortVolumeMaxToMinCommand}"></Button>
-                                <Button
+                                    <Button
                                     Margin="2"
                                     Content="Smallest to biggest"
                                     Command="{Binding SortVolumeMinToMaxCommand}"></Button>
-                            </StackPanel>
-                        </Expander>
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
-            <Button
-                Grid.Row="2"
-                Content="Setting"
-                FontSize="25"
-                Background="GreenYellow"></Button>
-        </Grid>
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+                <Button
+                    Grid.Row="2"
+                    Content="Setting"
+                    FontSize="25"
+                    Background="GreenYellow"
+                    Command="{Binding OpenSettingCommand}"></Button>
+            </Grid>
 
-        <ScrollViewer
+            <ScrollViewer
             Visibility="{Binding VisibilityListCoin}"
             x:Name="viewCoins"
             Grid.Column="1">
-            <StackPanel>
-                
-                <StackPanel
+                <StackPanel>
+
+                    <StackPanel
             Grid.Column="1">
-                <StackPanel
+                        <StackPanel
                     Height="34"
                     Orientation="Horizontal">
-                    <StackPanel.Resources>
-                    <Style
+                            <StackPanel.Resources>
+                                <Style
                         TargetType="TextBlock">
-                        <Setter
+                                    <Setter
                             Property="FontSize"
                             Value="20"></Setter>
-                        <Setter
+                                    <Setter
                             Property="Margin"
                             Value="10 0 10 0"></Setter>
-                    </Style>
-                    </StackPanel.Resources>
-                
-                    <TextBlock
+                                </Style>
+                            </StackPanel.Resources>
+
+                            <TextBlock
                     Width="80"
                     Text="Image"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="200"
                     Text="Name"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="200"
                     Text="Price"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="250"
                     Text="Volume"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="24h"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="7d"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="14d"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="30d"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="60d"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Margin="10 0 10 0"
                     FontSize="20"
                     Width="100"
                     Text="200d"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="1y"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="not"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="not"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="not"></TextBlock>
-                    <TextBlock
+                            <TextBlock
                     Width="100"
                     Text="not"></TextBlock>
-                </StackPanel>
-            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
 
-                <ListBox
+                    <ListBox
                     ItemsSource="{Binding SelectedCoins}"
                     SelectedItem="{Binding SelectedCoin}"
                     BorderBrush="Black"
                     Padding="5">
 
-                    <ListBox.ItemContainerStyle>
-                        <Style
+                        <ListBox.ItemContainerStyle>
+                            <Style
                             TargetType="ListBoxItem">
-                            <Style.Triggers>
-                                <Trigger
+                                <Style.Triggers>
+                                    <Trigger
                                     Property="IsMouseOver" Value="True">
-                                    <Setter Property="IsSelected" Value="True"></Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                                        <Setter Property="IsSelected" Value="True"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
 
-                    <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border
                         BorderBrush="Red"
                         BorderThickness="2">
 
-                            <StackPanel
+                                    <StackPanel
                             Orientation="Horizontal"
                             Margin="1">
-                                <StackPanel.Resources>
-                                    <Style
+                                        <StackPanel.Resources>
+                                            <Style
                                         TargetType="TextBlock">
-                                        <Setter
+                                                <Setter
                                             Property="FontSize"
                                             Value="20"></Setter>
-                                        <Setter
+                                                <Setter
                                             Property="Margin"
                                             Value="10 5 10 5"></Setter>
-                                    </Style>
-                                </StackPanel.Resources>
-                                <Button
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Button
                                 Margin="20 1 10 1"
                                 Height="50"
                                 Width="50"
                                 Command="{Binding 
                                 ElementName=moreData, 
                                 Path=Command}">
-                                    <Button.Background>
-                                        <ImageBrush
+                                            <Button.Background>
+                                                <ImageBrush
                                         ImageSource="{Binding Image.Large}"
                                         Stretch="Uniform"></ImageBrush>
-                                    </Button.Background>
-                                </Button>
+                                            </Button.Background>
+                                        </Button>
 
-                                <TextBlock
+                                        <TextBlock
                                 Margin="10 5 10 5"
                                 Width="200"
                                 FontSize="25"
                                 Text="{Binding Name}"></TextBlock>
 
-                                <ComboBox
+                                        <ComboBox
                                     SelectedIndex="1"
                                 Margin="10 0 10 0"
                                 Width="200"
                                 Height="35">
-                                    <WrapPanel>
-                                        <Label
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Eur"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Eur}"></TextBlock>
-                                    </WrapPanel>
-                                    <WrapPanel>
-                                        <Label
+                                            </WrapPanel>
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Usd"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Usd}"></TextBlock>
-                                    </WrapPanel>
-                                    <WrapPanel>
-                                        <Label
+                                            </WrapPanel>
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Uah"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Uah}"></TextBlock>
-                                    </WrapPanel>
-                                    <WrapPanel>
-                                        <Label
+                                            </WrapPanel>
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Rub"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Rub}"></TextBlock>
-                                    </WrapPanel>
-                                </ComboBox>
+                                            </WrapPanel>
+                                        </ComboBox>
 
-                                <ComboBox
+                                        <ComboBox
                                     SelectedIndex="1"
                                 Margin="10 0 10 0"
                                 Width="250"
                                 Height="35">
-                                    <WrapPanel>
-                                        <Label
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Eur"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Total_volume.Eur}"></TextBlock>
-                                    </WrapPanel>
-                                    <WrapPanel>
-                                        <Label
+                                            </WrapPanel>
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Usd"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Total_volume.Usd}"></TextBlock>
-                                    </WrapPanel>
-                                    <WrapPanel>
-                                        <Label
+                                            </WrapPanel>
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Uah"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Total_volume.Uah}"></TextBlock>
-                                    </WrapPanel>
-                                    <WrapPanel>
-                                        <Label
+                                            </WrapPanel>
+                                            <WrapPanel>
+                                                <Label
                                         Margin="0 0 10 0"
                                         Padding="0"
                                         FontSize="20"
                                         Content="Rub"></Label>
-                                        <TextBlock
+                                                <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Total_volume.Rub}"></TextBlock>
-                                    </WrapPanel>
-                                </ComboBox>
+                                            </WrapPanel>
+                                        </ComboBox>
 
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_24h}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_7d}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_14d}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_30d}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_60d}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_200d}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
 
-                                
-                                <TextBlock
+
+                                        <TextBlock
                                 Margin="10 5 10 5"
                                 Width="100"
                                 FontSize="20"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Margin="10 5 10 5"
                                 Width="100"
                                 FontSize="20"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Margin="10 5 10 5"
                                 Width="100"
                                 FontSize="20"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Margin="10 5 10 5"
                                 Width="100"
                                 FontSize="20"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                <TextBlock
+                                        <TextBlock
                                 Margin="10 5 10 5"
                                 Width="100"
                                 FontSize="20"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
 
 
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
 
-                <Button
+                    <Button
                     Command="{Binding MoreDataCoinCommand}"
                     x:Name="moreData"
                     Visibility="Hidden"></Button>
-            </StackPanel>
-        </ScrollViewer>
+                </StackPanel>
+            </ScrollViewer>
 
-        <ScrollViewer
+            <ScrollViewer
             Visibility="{Binding VisibilityListMarket}"
             x:Name="viewCoinMarket"
             Grid.Column="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
 
-                <WrapPanel
+                    <StackPanel
+                    Orientation="Horizontal"
                     Margin="5"
                     Background="Gray">
-                    <WrapPanel.Resources>
-                        <Style
+                        <StackPanel.Resources>
+                            <Style
                             TargetType="TextBlock">
-                            <Setter
+                                <Setter
                                 Property="Margin"
                                 Value="30"></Setter>
-                            <Setter
+                                <Setter
                                 Property="FontSize"
                                 Value="25"></Setter>
-                            <Setter
+                                <Setter
                                  Property="Width"
                                  Value="200"></Setter>
-                        </Style>
-                    </WrapPanel.Resources>
-                    <Image
+                            </Style>
+                        </StackPanel.Resources>
+                        <Image
                         Source="{Binding SelectedMoreDataCoin.Image.Large}"
                         Width="70"
                         Height="70"
                         Margin="30 10 30 10"
                         Stretch="Uniform"
                         ></Image>
-                    <TextBlock
+                        <TextBlock
                         Text="{Binding SelectedMoreDataCoin.Name}"></TextBlock>
-                    <TextBlock
+                        <TextBlock
                         Text="{Binding SelectedMoreDataCoin.Market_data.Current_price.Usd}"></TextBlock>
-                    <TextBlock
+                        <TextBlock
                         Text="{Binding SelectedMoreDataCoin.Market_data.Total_volume.Usd}"></TextBlock>
-                    <Button
+                        <Button
+                        Background="Yellow"
                         Width="200"
                         Height="50"
                         FontSize="25"
                         Content="Back"
                         Command="{Binding BackCommand}"></Button>
-                </WrapPanel>
+                    </StackPanel>
 
-                <ListBox
+                    <StackPanel
                     Grid.Row="1"
+                    Orientation="Horizontal"
+                    Background="LightGray"
+                    Margin="5 5 5 0">
+                        <StackPanel.Resources>
+                            <Style
+                            TargetType="TextBlock">
+                                <Setter
+                                Property="Margin"
+                                Value="10 5"></Setter>
+                                <Setter
+                                Property="FontSize"
+                                Value="20"></Setter>
+                                <Setter
+                                Property="Width"
+                                Value="250"></Setter>
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock
+                        Width="150"
+                        Text="Market Link"></TextBlock>
+                        <TextBlock
+                        Width="300"
+                        Text="Name"></TextBlock>
+                        <TextBlock
+                        Text="Base"></TextBlock>
+                        <TextBlock
+                        Text="Target"></TextBlock>
+                        <TextBlock
+                        Text="Price (Usd)"></TextBlock>
+                        <TextBlock
+                        Text="Value"></TextBlock>
+                    </StackPanel>
+
+                    <ListBox
+                    Grid.Row="2"
                     ItemsSource="{Binding SelectedMoreDataCoin.Tickers}"
                     SelectedItem="{Binding SelectedTicker}"
-                    Margin="5"
+                    Margin="5 0 5 5"
                     BorderBrush="Black">
 
-                    <ListBox.ItemContainerStyle>
-                        <Style
+                        <ListBox.ItemContainerStyle>
+                            <Style
                     TargetType="ListBoxItem">
-                            <Style.Triggers>
-                                <Trigger
+                                <Style.Triggers>
+                                    <Trigger
                             Property="IsMouseOver" Value="True">
-                                    <Setter Property="IsSelected" Value="True"></Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                    
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border
+                                        <Setter Property="IsSelected" Value="True"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border
                                 BorderBrush="Red"
                                 BorderThickness="2"
                                 Padding="5">
-                                <StackPanel
+                                    <StackPanel
                                     Margin="2"
                                     Orientation="Horizontal">
-                                    <StackPanel.Resources>
-                                        <Style
+                                        <StackPanel.Resources>
+                                            <Style
                                             TargetType="TextBlock">
-                                            <Setter
+                                                <Setter
                                                 Property="Margin"
                                                 Value="10"></Setter>
-                                            <Setter
+                                                <Setter
                                                 Property="FontSize"
                                                 Value="25"></Setter>
-                                            <Setter
+                                                <Setter
                                                 Property="Width"
-                                                Value="200"></Setter>
-                                        </Style>
-                                    </StackPanel.Resources>
-                                    <Button
-                                        Content="Link"
+                                                Value="250"></Setter>
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Button
+                                        Content="Click here"
                                         Width="150"
                                         FontSize="25"
                                         Command="{Binding ElementName=linkMarket,
                                         Path=Command}"></Button>
-                                    <TextBlock
+                                        <TextBlock
+                                        Width="300"
                                         Text="{Binding Market.Name}"></TextBlock>
-                                    <TextBlock
+                                        <TextBlock
                                         Text="{Binding Base}"></TextBlock>
-                                    <TextBlock
+                                        <TextBlock
                                         Text="{Binding Target}"></TextBlock>
-                                    <TextBlock
+                                        <TextBlock
                                         Text="{Binding Last}"></TextBlock>
-                                    <TextBlock
-                                        Width="250"
+                                        <TextBlock
                                         Text="{Binding Volume}"></TextBlock>
-                                    
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
 
-                <Button
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Button
                     Command="{Binding LinkMarketCommand}"
                     x:Name="linkMarket"
                     Visibility="Hidden"></Button>
 
-            </Grid>
-        </ScrollViewer>
+                </Grid>
+            </ScrollViewer>
 
+        </Grid>
+
+
+        <Grid
+            x:Name="setingGrid"
+            Visibility="{Binding VisibilitySetingGrid}">
+            <StackPanel>
+                
+                <GroupBox
+                    Margin="10"
+                    Width="500"
+                    FontSize="20"
+                    Header="Language">
+                    <StackPanel
+                        Margin="5">
+                        <StackPanel.Resources>
+                            <Style
+                                TargetType="Button">
+                                <Setter
+                                    Property="FontSize"
+                                    Value="20"></Setter>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button
+                            Command="{Binding ChangeLangENCommand}"
+                            Content="EN"></Button>
+                        <Button
+                            Command="{Binding ChangeLangUACommand}"
+                            Content="UA"></Button>
+                        <Button
+                            Command="{Binding ChangeLangRUCommand}"
+                            Content="RU"></Button>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox
+                     Margin="10"
+                    Width="500"
+                    FontSize="20"
+                    Header="Styles">
+                    <StackPanel>
+                        <Button
+                            Command="{Binding ChangeLightStyleCommand}"
+                            Content="Light style"></Button>
+                        <Button
+                            Command="{Binding ChangeDarkStyleCommand}"
+                            Content="Dark style"></Button>
+                    </StackPanel>
+                </GroupBox>
+
+                <Button
+                    Width="500"
+                    FontSize="25"
+                    Margin="10"
+                    Content="Back"
+                    Background="Green"
+                    Command="{Binding CloseSettingCommand}"></Button>
+                
+            </StackPanel>
+            
+        </Grid>
     </Grid>
+
 </Window>
