@@ -2,6 +2,33 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    
+    <Style
+        TargetType="Grid">
+        <Setter
+            Property="Background"
+            Value="LightGray">
+        </Setter>
+    </Style>
+    <Style
+        TargetType="StackPanel">
+        <Setter
+            Property="Background"
+            Value="LightGray">
+        </Setter>
+    </Style>
+    <Style
+        TargetType="ListBox">
+        <Setter
+            Property="Background"
+            Value="White">
+        </Setter>
+    </Style>
+    <Style
+        TargetType="Border">
+        <Setter
+            Property="BorderBrush"
+            Value="LightBlue">
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

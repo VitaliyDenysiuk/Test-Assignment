@@ -35,11 +35,10 @@
                 </Grid.RowDefinitions>
 
                 <Button
-            Height="30"
-            FontSize="20"
+            Height="40"
+            FontSize="25"
             Command="{Binding SelectAllCointsCommand}"
-            Background="Gold"
-            Content="SelectAll"></Button>
+            Content="Select all"></Button>
                 <StackPanel
                 Grid.Row="1">
 
@@ -68,10 +67,12 @@
                             Header="Price">
                                 <StackPanel>
                                     <Button
+                                        FontSize="16"
                                     Margin="2"
                                     Content="Biggest to smallest"
                                     Command="{Binding SortPriceMaxToMinCommand}"></Button>
                                     <Button
+                                        FontSize="16"
                                     Margin="2"
                                     Content="Smallest to biggest"
                                     Command="{Binding SortPriceMinToMaxCommand}"></Button>
@@ -82,10 +83,12 @@
                             Header="Volume">
                                 <StackPanel>
                                     <Button
+                                        FontSize="16"
                                     Margin="2"
                                     Content="Biggest to smallest"
                                     Command="{Binding SortVolumeMaxToMinCommand}"></Button>
                                     <Button
+                                        FontSize="16"
                                     Margin="2"
                                     Content="Smallest to biggest"
                                     Command="{Binding SortVolumeMinToMaxCommand}"></Button>
@@ -98,7 +101,6 @@
                     Grid.Row="2"
                     Content="Settings"
                     FontSize="25"
-                    Background="GreenYellow"
                     Command="{Binding OpenSettingsCommand}"></Button>
             </Grid>
 
@@ -106,13 +108,14 @@
             Visibility="{Binding VisibilityListCoin}"
             x:Name="viewCoins"
             Grid.Column="1">
-                <StackPanel>
+                <StackPanel
+>
 
                     <StackPanel
-            Grid.Column="1">
+                        Grid.Column="1">
                         <StackPanel
-                    Height="34"
-                    Orientation="Horizontal">
+                            Height="40"
+                            Orientation="Horizontal">
                             <StackPanel.Resources>
                                 <Style
                         TargetType="TextBlock">
@@ -121,7 +124,7 @@
                             Value="20"></Setter>
                                     <Setter
                             Property="Margin"
-                            Value="10 0 10 0"></Setter>
+                            Value="10 5 10 0"></Setter>
                                 </Style>
                             </StackPanel.Resources>
 
@@ -153,25 +156,11 @@
                     Width="100"
                     Text="60d"></TextBlock>
                             <TextBlock
-                    Margin="10 0 10 0"
-                    FontSize="20"
                     Width="100"
                     Text="200d"></TextBlock>
                             <TextBlock
                     Width="100"
                     Text="1y"></TextBlock>
-                            <TextBlock
-                    Width="100"
-                    Text="not"></TextBlock>
-                            <TextBlock
-                    Width="100"
-                    Text="not"></TextBlock>
-                            <TextBlock
-                    Width="100"
-                    Text="not"></TextBlock>
-                            <TextBlock
-                    Width="100"
-                    Text="not"></TextBlock>
                         </StackPanel>
                     </StackPanel>
 
@@ -196,12 +185,12 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border
-                        BorderBrush="Red"
-                        BorderThickness="2">
+                                    BorderBrush="Black"
+                                    BorderThickness="1">
 
                                     <StackPanel
-                            Orientation="Horizontal"
-                            Margin="1">
+                                        Orientation="Horizontal"
+                                        Margin="1">
                                         <StackPanel.Resources>
                                             <Style
                                         TargetType="TextBlock">
@@ -349,34 +338,6 @@
                                 Width="100"
                                 Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
 
-
-                                        <TextBlock
-                                Margin="10 5 10 5"
-                                Width="100"
-                                FontSize="20"
-                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                        <TextBlock
-                                Margin="10 5 10 5"
-                                Width="100"
-                                FontSize="20"
-                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                        <TextBlock
-                                Margin="10 5 10 5"
-                                Width="100"
-                                FontSize="20"
-                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                        <TextBlock
-                                Margin="10 5 10 5"
-                                Width="100"
-                                FontSize="20"
-                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-                                        <TextBlock
-                                Margin="10 5 10 5"
-                                Width="100"
-                                FontSize="20"
-                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
-
-
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
@@ -424,8 +385,7 @@
                         Width="70"
                         Height="70"
                         Margin="30 10 30 10"
-                        Stretch="Uniform"
-                        ></Image>
+                        Stretch="Uniform"></Image>
                         <TextBlock
                         Text="{Binding SelectedMoreDataCoin.Name}"></TextBlock>
                         <TextBlock
@@ -433,7 +393,6 @@
                         <TextBlock
                         Text="{Binding SelectedMoreDataCoin.Market_data.Total_volume.Usd}"></TextBlock>
                         <Button
-                        Background="Yellow"
                         Width="200"
                         Height="50"
                         FontSize="25"
@@ -485,10 +444,10 @@
 
                         <ListBox.ItemContainerStyle>
                             <Style
-                    TargetType="ListBoxItem">
+                                TargetType="ListBoxItem">
                                 <Style.Triggers>
                                     <Trigger
-                            Property="IsMouseOver" Value="True">
+                                        Property="IsMouseOver" Value="True">
                                         <Setter Property="IsSelected" Value="True"></Setter>
                                     </Trigger>
                                 </Style.Triggers>
@@ -498,8 +457,8 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border
-                                BorderBrush="Red"
-                                BorderThickness="2"
+                                BorderBrush="Black"
+                                BorderThickness="1"
                                 Padding="5">
                                     <StackPanel
                                     Margin="2"
@@ -552,14 +511,19 @@
 
         </Grid>
 
-
         <Grid
             
             x:Name="setingsGrid"
             Visibility="{Binding VisibilitySetingsGrid}">
             <StackPanel
-                Margin="0 100 0 0">
-                
+                Margin="0 50 0 0">
+                <TextBlock
+                    Text="Settings"
+                    FontSize="100"
+                    Width="400"
+                    Margin="20 20 20 50">
+                    
+                </TextBlock>
                 <GroupBox
                     Margin="10"
                     Width="500"
@@ -567,14 +531,6 @@
                     Header="Languages">
                     <StackPanel
                         Margin="5">
-                        <StackPanel.Resources>
-                            <Style
-                                TargetType="Button">
-                                <Setter
-                                    Property="FontSize"
-                                    Value="20"></Setter>
-                            </Style>
-                        </StackPanel.Resources>
                         <Button
                             Command="{Binding ChangeLangENCommand}"
                             Content="EN"></Button>
@@ -607,12 +563,12 @@
                     FontSize="25"
                     Margin="10"
                     Content="Back"
-                    Background="Green"
                     Command="{Binding CloseSettingsCommand}"></Button>
                 
             </StackPanel>
             
         </Grid>
+        
     </Grid>
 
 </Window>
