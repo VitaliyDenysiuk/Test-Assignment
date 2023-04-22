@@ -24,13 +24,13 @@
     <v:String x:Key="nameMarket">Name</v:String>
     <v:String x:Key="base">Base</v:String>
     <v:String x:Key="target">Target</v:String>
-    <v:String x:Key="priceUsd">Price(Usd)</v:String>
+    <v:String x:Key="priceUsd">Price (Usd)</v:String>
 
     <v:String x:Key="btnSelectAll">Select all</v:String>
     <v:String x:Key="search">Search:</v:String>
     <v:String x:Key="sort">Sort (usd)</v:String>
-    <v:String x:Key="sortPrice">Price</v:String>
-    <v:String x:Key="sortVolume">Volume</v:String>
+    <v:String x:Key="nameSortPrice">Price</v:String>
+    <v:String x:Key="nameSortVolume">Volume</v:String>
     <v:String x:Key="maxToMin">Biggest to smallest</v:String>
     <v:String x:Key="minToMax">Smallest to biggest</v:String>
 
@@ -38,12 +38,13 @@
     <v:String x:Key="settings">Settings</v:String>
     <v:String x:Key="styles">Styles</v:String>
     <v:String x:Key="languages">Languages</v:String>
-    <v:String x:Key="styleLight">Settings</v:String>
-    <v:String x:Key="styleDark">Settings</v:String>
+    <v:String x:Key="styleLight">Light style</v:String>
+    <v:String x:Key="styleDark">Dark style</v:String>
     <v:String x:Key="en">EN</v:String>
     <v:String x:Key="ua">UA</v:String>
     <v:String x:Key="ru">RU</v:String>
 
-    <v:String x:Key="back">Back</v:String>
+    <v:String x:Key="backSettings">Back</v:String>
+    <v:String x:Key="backViewMarkets">Back</v:String>
 
 </ResourceDictionary>

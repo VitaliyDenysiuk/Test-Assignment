@@ -35,67 +35,71 @@
                 </Grid.RowDefinitions>
 
                 <Button
-            Height="40"
-            FontSize="25"
-            Command="{Binding SelectAllCointsCommand}"
-            Content="Select all"></Button>
+                    Height="40"
+                    FontSize="25"
+                    Command="{Binding SelectAllCointsCommand}"
+                    Content="{DynamicResource btnSelectAll}"></Button>
                 <StackPanel
-                Grid.Row="1">
+                    Grid.Row="1">
 
                     <Label
-                    FontSize="20"
-                    Margin="10 10 0 0"
-                    Content="Search:"></Label>
+                        FontSize="20"
+                        Margin="10 10 0 0"
+                        Content="{DynamicResource search}"></Label>
                     <TextBox
-                    x:Name="search"
-                    FontSize="20"
-                    Margin="10 0 10 10">
+                        x:Name="search"
+                        FontSize="20"
+                        Margin="10 0 10 10">
                         <TextBox.InputBindings>
                             <KeyBinding
-                        Key="Enter"
-                        Command="{Binding SearchNameCommand,UpdateSourceTrigger=PropertyChanged}"
-                        CommandParameter="{Binding Text,ElementName=search}"></KeyBinding>
+                                Key="Enter"
+                                Command="{Binding SearchNameCommand,UpdateSourceTrigger=PropertyChanged}"
+                                CommandParameter="{Binding Text,ElementName=search}"></KeyBinding>
                         </TextBox.InputBindings>
                     </TextBox>
 
                     <Expander
-                    Header="Sort (usd)"
+                    Header="{DynamicResource sort}"
                     Margin="10"
                     FontSize="20">
                         <StackPanel>
+                            
                             <Expander
-                            Header="Price">
+                            Header="{DynamicResource nameSortPrice}">
                                 <StackPanel>
                                     <Button
                                         FontSize="16"
-                                    Margin="2"
-                                    Content="Biggest to smallest"
-                                    Command="{Binding SortPriceMaxToMinCommand}"></Button>
+                                        Margin="2"
+                                        Content="{DynamicResource maxToMin}"
+                                        Command="{Binding SortPriceMaxToMinCommand}"></Button>
                                     <Button
                                         FontSize="16"
-                                    Margin="2"
-                                    Content="Smallest to biggest"
-                                    Command="{Binding SortPriceMinToMaxCommand}"></Button>
+                                        Margin="2"
+                                        Content="{DynamicResource minToMax}"
+                                        Command="{Binding SortPriceMinToMaxCommand}"></Button>
                                 </StackPanel>
 
                             </Expander>
+                            
                             <Expander
-                            Header="Volume">
+                                Header="{DynamicResource nameSortVolume}">
                                 <StackPanel>
                                     <Button
                                         FontSize="16"
-                                    Margin="2"
-                                    Content="Biggest to smallest"
-                                    Command="{Binding SortVolumeMaxToMinCommand}"></Button>
+                                        Margin="2"
+                                        Content="{DynamicResource maxToMin}"
+                                        Command="{Binding SortVolumeMaxToMinCommand}"></Button>
                                     <Button
                                         FontSize="16"
-                                    Margin="2"
-                                    Content="Smallest to biggest"
-                                    Command="{Binding SortVolumeMinToMaxCommand}"></Button>
+                                        Margin="2"
+                                        Content="{DynamicResource minToMax}"
+                                        Command="{Binding SortVolumeMinToMaxCommand}"></Button>
                                 </StackPanel>
                             </Expander>
+                            
                         </StackPanel>
                     </Expander>
+                    
                 </StackPanel>
                 <Button
                     Grid.Row="2"
@@ -108,8 +112,7 @@
             Visibility="{Binding VisibilityListCoin}"
             x:Name="viewCoins"
             Grid.Column="1">
-                <StackPanel
->
+                <StackPanel>
 
                     <StackPanel
                         Grid.Column="1">
@@ -118,7 +121,7 @@
                             Orientation="Horizontal">
                             <StackPanel.Resources>
                                 <Style
-                        TargetType="TextBlock">
+                                    TargetType="TextBlock">
                                     <Setter
                             Property="FontSize"
                             Value="20"></Setter>
@@ -193,7 +196,7 @@
                                         Margin="1">
                                         <StackPanel.Resources>
                                             <Style
-                                        TargetType="TextBlock">
+                                                TargetType="TextBlock">
                                                 <Setter
                                             Property="FontSize"
                                             Value="20"></Setter>
@@ -203,66 +206,70 @@
                                             </Style>
                                         </StackPanel.Resources>
                                         <Button
-                                Margin="20 1 10 1"
-                                Height="50"
-                                Width="110"
-                                Command="{Binding 
-                                ElementName=moreData, 
-                                Path=Command}">
+                                            Margin="20 1 10 1"
+                                            Height="50"
+                                            Width="110"
+                                            Command="{Binding 
+                                            ElementName=moreData, 
+                                            Path=Command}">
                                             <Button.Background>
                                                 <ImageBrush
-                                        ImageSource="{Binding Image.Large}"
-                                        Stretch="Uniform"></ImageBrush>
+                                                    ImageSource="{Binding Image.Large}"
+                                                    Stretch="Uniform"></ImageBrush>
                                             </Button.Background>
                                         </Button>
 
                                         <TextBlock
-                                Margin="10 5 10 5"
-                                Width="200"
-                                FontSize="25"
-                                Text="{Binding Name}"></TextBlock>
+                                            Margin="10 5 10 5"
+                                            Width="200"
+                                            FontSize="25"
+                                            Text="{Binding Name}"></TextBlock>
 
                                         <ComboBox
-                                    SelectedIndex="1"
-                                Margin="10 0 10 0"
-                                Width="200"
-                                Height="35">
+                                            SelectedIndex="1"
+                                            Margin="10 0 10 0"
+                                            Width="200"
+                                            Height="35">
+                                            
+                                            <ComboBox.Resources>
+                                                <Style
+                                                    TargetType="Label">
+                                                    <Setter
+                                                    Property="FontSize"
+                                                    Value="20"></Setter>
+                                                    <Setter
+                                                    Property="Margin"
+                                                    Value="0 5 10 0"></Setter>
+                                                    <Setter
+                                                    Property="Padding"
+                                                    Value="0"></Setter>
+                                                </Style>
+                                            </ComboBox.Resources>
+                                            
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Eur"></Label>
+                                        Content="{DynamicResource eur}"></Label>
                                                 <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Eur}"></TextBlock>
                                             </WrapPanel>
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Usd"></Label>
+                                        Content="{DynamicResource usd}"></Label>
                                                 <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Usd}"></TextBlock>
                                             </WrapPanel>
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Uah"></Label>
+                                        Content="{DynamicResource uah}"></Label>
                                                 <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Uah}"></TextBlock>
                                             </WrapPanel>
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Rub"></Label>
+                                        Content="{DynamicResource rub}"></Label>
                                                 <TextBlock
                                         FontSize="20"
                                     Text="{Binding Market_data.Current_price.Rub}"></TextBlock>
@@ -271,72 +278,76 @@
 
                                         <ComboBox
                                     SelectedIndex="1"
-                                Margin="10 0 10 0"
-                                Width="250"
-                                Height="35">
+                                    Margin="10 0 10 0"
+                                    Width="250"
+                                    Height="35">
+                                            
+                                            <ComboBox.Resources>
+                                                <Style
+                                                    TargetType="Label">
+                                                    <Setter
+                                                    Property="FontSize"
+                                                    Value="20"></Setter>
+                                                    <Setter
+                                                    Property="Margin"
+                                                    Value="0 5 10 0"></Setter>
+                                                    <Setter
+                                                    Property="Padding"
+                                                    Value="0"></Setter>
+                                                </Style>
+                                            </ComboBox.Resources>
+                                            
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Eur"></Label>
+                                        Content="{DynamicResource eur}"></Label>
                                                 <TextBlock
                                         FontSize="20"
-                                    Text="{Binding Market_data.Total_volume.Eur}"></TextBlock>
+                                        Text="{Binding Market_data.Total_volume.Eur}"></TextBlock>
                                             </WrapPanel>
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Usd"></Label>
+                                        Content="{DynamicResource usd}"></Label>
                                                 <TextBlock
                                         FontSize="20"
-                                    Text="{Binding Market_data.Total_volume.Usd}"></TextBlock>
+                                        Text="{Binding Market_data.Total_volume.Usd}"></TextBlock>
                                             </WrapPanel>
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Uah"></Label>
+                                        Content="{DynamicResource uah}"></Label>
                                                 <TextBlock
                                         FontSize="20"
-                                    Text="{Binding Market_data.Total_volume.Uah}"></TextBlock>
+                                        Text="{Binding Market_data.Total_volume.Uah}"></TextBlock>
                                             </WrapPanel>
                                             <WrapPanel>
                                                 <Label
-                                        Margin="0 0 10 0"
-                                        Padding="0"
-                                        FontSize="20"
-                                        Content="Rub"></Label>
+                                        Content="{DynamicResource rub}"></Label>
                                                 <TextBlock
                                         FontSize="20"
-                                    Text="{Binding Market_data.Total_volume.Rub}"></TextBlock>
+                                        Text="{Binding Market_data.Total_volume.Rub}"></TextBlock>
                                             </WrapPanel>
                                         </ComboBox>
 
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_24h}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_24h}"></TextBlock>
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_7d}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_7d}"></TextBlock>
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_14d}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_14d}"></TextBlock>
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_30d}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_30d}"></TextBlock>
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_60d}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_60d}"></TextBlock>
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_200d}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_200d}"></TextBlock>
                                         <TextBlock
-                                Width="100"
-                                Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
+                                            Width="100"
+                                            Text="{Binding Market_data.Price_change_percentage_1y}"></TextBlock>
 
                                     </StackPanel>
                                 </Border>
@@ -348,6 +359,7 @@
                     Command="{Binding MoreDataCoinCommand}"
                     x:Name="moreData"
                     Visibility="Hidden"></Button>
+                    
                 </StackPanel>
             </ScrollViewer>
 
@@ -355,6 +367,7 @@
             Visibility="{Binding VisibilityListMarket}"
             x:Name="viewCoinMarket"
             Grid.Column="1">
+                
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"></RowDefinition>
@@ -364,8 +377,8 @@
 
                     <StackPanel
                     Orientation="Horizontal"
-                    Margin="5"
-                    Background="Gray">
+                    Margin="5">
+                        
                         <StackPanel.Resources>
                             <Style
                             TargetType="TextBlock">
@@ -380,6 +393,7 @@
                                  Value="200"></Setter>
                             </Style>
                         </StackPanel.Resources>
+                        
                         <Image
                         Source="{Binding SelectedMoreDataCoin.Image.Large}"
                         Width="70"
@@ -396,15 +410,15 @@
                         Width="200"
                         Height="50"
                         FontSize="25"
-                        Content="Back"
+                        Content="{DynamicResource backViewMarkets}"
                         Command="{Binding BackCommand}"></Button>
                     </StackPanel>
 
                     <StackPanel
                     Grid.Row="1"
                     Orientation="Horizontal"
-                    Background="LightGray"
                     Margin="5 5 5 0">
+                        
                         <StackPanel.Resources>
                             <Style
                             TargetType="TextBlock">
@@ -419,20 +433,21 @@
                                 Value="250"></Setter>
                             </Style>
                         </StackPanel.Resources>
+                        
                         <TextBlock
                         Width="150"
-                        Text="Market Link"></TextBlock>
+                        Text="{DynamicResource marketLink}"></TextBlock>
                         <TextBlock
                         Width="300"
-                        Text="Name"></TextBlock>
+                        Text="{DynamicResource nameMarket}"></TextBlock>
                         <TextBlock
-                        Text="Base"></TextBlock>
+                        Text="{DynamicResource base}"></TextBlock>
                         <TextBlock
-                        Text="Target"></TextBlock>
+                        Text="{DynamicResource target}"></TextBlock>
                         <TextBlock
-                        Text="Price (Usd)"></TextBlock>
+                        Text="{DynamicResource priceUsd}"></TextBlock>
                         <TextBlock
-                        Text="Value"></TextBlock>
+                        Text="{DynamicResource volume}"></TextBlock>
                     </StackPanel>
 
                     <ListBox
@@ -478,9 +493,9 @@
                                             </Style>
                                         </StackPanel.Resources>
                                         <Button
-                                        Content="Click here"
+                                        Content="{DynamicResource clickHere}"
                                         Width="150"
-                                        FontSize="25"
+                                        FontSize="20"
                                         Command="{Binding ElementName=linkMarket,
                                         Path=Command}"></Button>
                                         <TextBlock
@@ -507,39 +522,39 @@
                     Visibility="Hidden"></Button>
 
                 </Grid>
+                
             </ScrollViewer>
 
         </Grid>
 
         <Grid
-            
             x:Name="setingsGrid"
             Visibility="{Binding VisibilitySetingsGrid}">
+            
             <StackPanel
                 Margin="0 50 0 0">
                 <TextBlock
-                    Text="Settings"
+                    Text="{DynamicResource settings}"
                     FontSize="100"
                     Width="400"
-                    Margin="20 20 20 50">
-                    
-                </TextBlock>
+                    Margin="20 20 20 50"></TextBlock>
+                
                 <GroupBox
                     Margin="10"
                     Width="500"
                     FontSize="20"
-                    Header="Languages">
+                    Header="{DynamicResource languages}">
                     <StackPanel
                         Margin="5">
                         <Button
                             Command="{Binding ChangeLangENCommand}"
-                            Content="EN"></Button>
+                            Content="{DynamicResource en}"></Button>
                         <Button
                             Command="{Binding ChangeLangUACommand}"
-                            Content="UA"></Button>
+                            Content="{DynamicResource ua}"></Button>
                         <Button
                             Command="{Binding ChangeLangRUCommand}"
-                            Content="RU"></Button>
+                            Content="{DynamicResource ru}"></Button>
                     </StackPanel>
                 </GroupBox>
 
@@ -547,14 +562,14 @@
                     Margin="10"
                     Width="500"
                     FontSize="20"
-                    Header="Styles">
+                    Header="{DynamicResource styles}">
                     <StackPanel>
                         <Button
                             Command="{Binding ChangeLightStyleCommand}"
-                            Content="Light style"></Button>
+                            Content="{DynamicResource styleLight}"></Button>
                         <Button
                             Command="{Binding ChangeDarkStyleCommand}"
-                            Content="Dark style"></Button>
+                            Content="{DynamicResource styleDark}"></Button>
                     </StackPanel>
                 </GroupBox>
 
@@ -562,7 +577,7 @@
                     Width="500"
                     FontSize="25"
                     Margin="10"
-                    Content="Back"
+                    Content="{DynamicResource backSettings}"
                     Command="{Binding CloseSettingsCommand}"></Button>
                 
             </StackPanel>
