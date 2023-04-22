@@ -20,7 +20,7 @@
     <v:String x:Key="rub">Rub</v:String>
 
     <v:String x:Key="marketLink">Market link</v:String>
-    <v:String x:Key="clickHere">Click here</v:String>
+    <v:String x:Key="clickHere">Press here</v:String>
     <v:String x:Key="nameMarket">Name</v:String>
     <v:String x:Key="base">Base</v:String>
     <v:String x:Key="target">Target</v:String>
@@ -28,7 +28,7 @@
 
     <v:String x:Key="btnSelectAll">Select all</v:String>
     <v:String x:Key="search">Search:</v:String>
-    <v:String x:Key="sort">Sort (usd)</v:String>
+    <v:String x:Key="sort">Sorting (usd)</v:String>
     <v:String x:Key="nameSortPrice">Price</v:String>
     <v:String x:Key="nameSortVolume">Volume</v:String>
     <v:String x:Key="maxToMin">Biggest to smallest</v:String>

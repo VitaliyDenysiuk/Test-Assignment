@@ -14,4 +14,37 @@
     <v:String x:Key="d200">200д</v:String>
     <v:String x:Key="y1">1р</v:String>
 
+    <v:String x:Key="usd">дол</v:String>
+    <v:String x:Key="eur">євр</v:String>
+    <v:String x:Key="uah">грн</v:String>
+    <v:String x:Key="rub">руб</v:String>
+
+    <v:String x:Key="marketLink">Посилання на ринок</v:String>
+    <v:String x:Key="clickHere">Натисніть сюди</v:String>
+    <v:String x:Key="nameMarket">Назва</v:String>
+    <v:String x:Key="base">База</v:String>
+    <v:String x:Key="target">Ціль</v:String>
+    <v:String x:Key="priceUsd">Ціна (дол)</v:String>
+
+    <v:String x:Key="btnSelectAll">Обрати всі</v:String>
+    <v:String x:Key="search">Пошук:</v:String>
+    <v:String x:Key="sort">Сортування (дол)</v:String>
+    <v:String x:Key="nameSortPrice">Ціна</v:String>
+    <v:String x:Key="nameSortVolume">Об`єм</v:String>
+    <v:String x:Key="maxToMin">Від більшого до меншого</v:String>
+    <v:String x:Key="minToMax">Від меншого до більшого</v:String>
+
+    <v:String x:Key="btnSettings">Налаштування</v:String>
+    <v:String x:Key="settings">Налаштування</v:String>
+    <v:String x:Key="styles">Стилі</v:String>
+    <v:String x:Key="languages">Мови</v:String>
+    <v:String x:Key="styleLight">Світлий</v:String>
+    <v:String x:Key="styleDark">Темний</v:String>
+    <v:String x:Key="en">Англійська</v:String>
+    <v:String x:Key="ua">Український</v:String>
+    <v:String x:Key="ru">Російська</v:String>
+
+    <v:String x:Key="backSettings">Назад</v:String>
+    <v:String x:Key="backViewMarkets">Назад</v:String>
+
 </ResourceDictionary>
