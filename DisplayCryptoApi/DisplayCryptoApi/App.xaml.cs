@@ -81,14 +81,15 @@ namespace DisplayCryptoApi
             Language = DisplayCryptoApi.Properties.Settings.Default.DefaultLanguage;
         }
 
-        private void App_LanguageChanged(object sender, EventArgs e)
-        {
-            DisplayCryptoApi.Properties.Settings.Default.DefaultLanguage = Language;
-        }
-
         private void Application_LoadCompleted(object sender, NavigationEventArgs e)
         {
             Language = DisplayCryptoApi.Properties.Settings.Default.DefaultLanguage;
+        }
+
+        private void App_LanguageChanged(object sender, EventArgs e)
+        {
+            DisplayCryptoApi.Properties.Settings.Default.DefaultLanguage = Language;
+            DisplayCryptoApi.Properties.Settings.Default.Save();
         }
     }
 }

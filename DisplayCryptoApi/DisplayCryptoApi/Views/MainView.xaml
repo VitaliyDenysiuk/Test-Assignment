@@ -103,7 +103,7 @@
                 </StackPanel>
                 <Button
                     Grid.Row="2"
-                    Content="Settings"
+                    Content="{DynamicResource btnSettings}"
                     FontSize="25"
                     Command="{Binding OpenSettingsCommand}"></Button>
             </Grid>

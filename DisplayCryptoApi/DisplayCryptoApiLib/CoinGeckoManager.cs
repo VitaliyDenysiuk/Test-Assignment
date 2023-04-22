@@ -27,11 +27,6 @@ namespace DisplayCryptoApiLib
             options.Converters.Add(new JsonStringEnumConverter());
         }
 
-        public ObservableCollection<Coin> GetAllCoins()
-        {
-            return null;
-        }
-
         public ObservableCollection<Coin> GetCoins()
         {
             ObservableCollection<Coin> coins = null;
@@ -41,11 +36,9 @@ namespace DisplayCryptoApiLib
 
                 string json = networkManager.GetJson(url);
                 coins = System.Text.Json.JsonSerializer.Deserialize<ObservableCollection<Coin>>(json, options);
-
             }
             catch (Exception)
             {
-
             }
             return coins;
         }
@@ -55,18 +48,14 @@ namespace DisplayCryptoApiLib
             var coin = new Coin();
             try
             {
-
                 string url = $"{CoinGeckoApiConfig.BaseUrl}{id}";
 
                 string json = networkManager.GetJson(url);
                 coin = System.Text.Json.JsonSerializer.Deserialize<Coin>(json, options);
-
             }
             catch (Exception)
             {
-
             }
-
             return coin;
         }
     }

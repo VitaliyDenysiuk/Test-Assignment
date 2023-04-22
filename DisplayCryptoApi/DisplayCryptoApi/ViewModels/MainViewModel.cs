@@ -172,21 +172,35 @@ namespace DisplayCryptoApi.ViewModels
             SearchNameCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
-                foreach (var coin in cgManager.GetCoins())
+                try
                 {
-                    if (coin.Name.StartsWith((string)param))
+                    foreach (var coin in cgManager.GetCoins())
                     {
-                        SelectedCoins.Add(coin);
+                        if (coin.Name.StartsWith((string)param))
+                        {
+                            SelectedCoins.Add(coin);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             });
 
             MoreDataCoinCommand = new RelayCommand(param =>
             {
-                SelectedMoreDataCoin = cgManager.GetIdCoint(selectedCoin.Id);
-                VisibilityListCoin = "Hidden";
-                VisibilityListMarket = "Visible";
-                IsEnabledGrid = "false";
+                try
+                {
+                    SelectedMoreDataCoin = cgManager.GetIdCoint(selectedCoin.Id);
+                    VisibilityListCoin = "Hidden";
+                    VisibilityListMarket = "Visible";
+                    IsEnabledGrid = "false";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             });
             LinkMarketCommand = new RelayCommand(param =>
             {
@@ -209,30 +223,54 @@ namespace DisplayCryptoApi.ViewModels
             SortPriceMaxToMinCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
-
-                SelectedCoins = cgManager.GetCoins().OrderByDescending(c => c.Market_data.Current_price.Usd).ToObservableCollection();
+                try
+                {
+                    SelectedCoins = cgManager.GetCoins().OrderByDescending(c => c.Market_data.Current_price.Usd).ToObservableCollection();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             });
             SortPriceMinToMaxCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
-
-                SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Current_price.Usd).ToObservableCollection();
+                try
+                {
+                    SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Current_price.Usd).ToObservableCollection();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             });
 
             SortVolumeMaxToMinCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
-
-                SelectedCoins = cgManager.GetCoins().OrderByDescending(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
+                try
+                {
+                    SelectedCoins = cgManager.GetCoins().OrderByDescending(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             });
             SortVolumeMinToMaxCommand = new RelayCommand(param =>
             {
                 SelectedCoins = new ObservableCollection<Coin>();
-
-                SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
+                try
+                {
+                    SelectedCoins = cgManager.GetCoins().OrderBy(c => c.Market_data.Total_volume.Usd).ToObservableCollection();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             });
 
