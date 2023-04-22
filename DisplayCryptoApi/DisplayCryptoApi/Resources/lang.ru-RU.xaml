@@ -1,5 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:v="clr-namespace:System;assembly=mscorlib">
-    
+
+    <v:String x:Key="name">Название</v:String>
+    <v:String x:Key="image">Изображение</v:String>
+    <v:String x:Key="volume">Объем</v:String>
+    <v:String x:Key="price">Цена</v:String>
+    <v:String x:Key="h24">24ч</v:String>
+    <v:String x:Key="d7">7d</v:String>
+    <v:String x:Key="d14">14д</v:String>
+    <v:String x:Key="d30">30д</v:String>
+    <v:String x:Key="d60">60д</v:String>
+    <v:String x:Key="d200">200д</v:String>
+    <v:String x:Key="y1">1г</v:String>
+
 </ResourceDictionary>

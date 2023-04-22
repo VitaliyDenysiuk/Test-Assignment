@@ -3,12 +3,10 @@ using DisplayCryptoApi.Infrastructure;
 using DisplayCryptoApiLib;
 using DisplayCryptoApiLib.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -148,14 +146,13 @@ namespace DisplayCryptoApi.ViewModels
         {
             cgManager = new CoinGeckoManager();
 
-            
             SelectedCoins = cgManager.GetCoins();
             SelectedCoin = new Coin();
 
             IsEnabledGrid = "true";
+
             VisibilityListCoin = "Visible";
             VisibilityListMarket = "Hidden";
-
 
             VisibilityDataGrid = "Visible";
             VisibilitySetingsGrid = "Hidden";
@@ -309,8 +306,8 @@ namespace DisplayCryptoApi.ViewModels
         public ICommand ChangeLightStyleCommand { get; private set; }
         public ICommand ChangeDarkStyleCommand { get; private set; }
 
-        public ICommand ChangeLangRUCommand { get; private set; }
         public ICommand ChangeLangENCommand { get; private set; }
+        public ICommand ChangeLangRUCommand { get; private set; }
         public ICommand ChangeLangUACommand { get; private set; }
     }
 }

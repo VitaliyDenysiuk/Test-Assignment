@@ -1,5 +1,49 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:v="clr-namespace:System;assembly=mscorlib">
-    
+
+    <v:String x:Key="nameCoin">Name</v:String>
+    <v:String x:Key="image">Image</v:String>
+    <v:String x:Key="volume">Volume</v:String>
+    <v:String x:Key="price">Price</v:String>
+    <v:String x:Key="h24">24h</v:String>
+    <v:String x:Key="d7">7d</v:String>
+    <v:String x:Key="d14">14d</v:String>
+    <v:String x:Key="d30">30d</v:String>
+    <v:String x:Key="d60">60d</v:String>
+    <v:String x:Key="d200">200d</v:String>
+    <v:String x:Key="y1">1y</v:String>
+
+    <v:String x:Key="usd">Usd</v:String>
+    <v:String x:Key="eur">Eur</v:String>
+    <v:String x:Key="uah">Uah</v:String>
+    <v:String x:Key="rub">Rub</v:String>
+
+    <v:String x:Key="marketLink">Market link</v:String>
+    <v:String x:Key="clickHere">Click here</v:String>
+    <v:String x:Key="nameMarket">Name</v:String>
+    <v:String x:Key="base">Base</v:String>
+    <v:String x:Key="target">Target</v:String>
+    <v:String x:Key="priceUsd">Price(Usd)</v:String>
+
+    <v:String x:Key="btnSelectAll">Select all</v:String>
+    <v:String x:Key="search">Search:</v:String>
+    <v:String x:Key="sort">Sort (usd)</v:String>
+    <v:String x:Key="sortPrice">Price</v:String>
+    <v:String x:Key="sortVolume">Volume</v:String>
+    <v:String x:Key="maxToMin">Biggest to smallest</v:String>
+    <v:String x:Key="minToMax">Smallest to biggest</v:String>
+
+    <v:String x:Key="btnSettings">Settings</v:String>
+    <v:String x:Key="settings">Settings</v:String>
+    <v:String x:Key="styles">Styles</v:String>
+    <v:String x:Key="languages">Languages</v:String>
+    <v:String x:Key="styleLight">Settings</v:String>
+    <v:String x:Key="styleDark">Settings</v:String>
+    <v:String x:Key="en">EN</v:String>
+    <v:String x:Key="ua">UA</v:String>
+    <v:String x:Key="ru">RU</v:String>
+
+    <v:String x:Key="back">Back</v:String>
+
 </ResourceDictionary>
